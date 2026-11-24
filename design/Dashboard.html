@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — deploykit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="a69bd74e139ff06b===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'background': '#F0EBD8',
+        'primary': '#0D1321',
+        'on-primary': '#F0EBD8',
+        'secondary': '#3E5C76',
+        'on-secondary': '#FFFFFF',
+        'accent': '#748CAB',
+        'on-accent': '#0D1321',
+        'dark-secondary': '#1D2D44',
+        'on-dark-secondary': '#F0EBD8',
+        'card-bg': '#E5E5CF',
+        'on-card-bg': '#0D1321',
+        'surface': '#F0EBD8',
+        'on-surface': '#0D1321',
+        'surface-elevated': '#FAF8F0',
+        'on-surface-elevated': '#0D1321',
+        'muted': '#494739',
+        'border-subtle': '#CBC7B5',
+        'success': '#2C694E',
+        'on-success': '#FFFFFF',
+        'success-container': '#B1F0CE',
+        'on-success-container': '#002114',
+        'warning': '#9B4500',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDBCA',
+        'on-warning-container': '#331200',
+        'error': '#8C161D',
+        'on-error': '#FFFFFF',
+        'error-container': '#FFDAD7',
+        'on-error-container': '#410005',
+        'info': '#2B4963',
+        'on-info': '#FFFFFF',
+        'info-container': '#D1E4FF',
+        'on-info-container': '#001D36',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Wix Madefor Display"', 'sans-serif'],
+        'headline': ['"Wix Madefor Display"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Red Hat Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'headline-sm': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '19px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Red+Hat+Mono:wght@400;500;600&amp;family=Wix+Madefor+Display:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- Mobile Header -->
+    <header class="lg:hidden flex items-center justify-between bg-primary text-on-primary px-4 py-3 sticky top-0 z-30 border-b border-dark-secondary">
+      <a href="../dashboard/Dashboard.html" class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded bg-secondary text-on-secondary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]">deployed_code</span>
+        </span>
+        <span class="font-headline text-headline-sm text-on-primary tracking-tight" data-design-text-token="headline-sm">deploykit</span>
+      </a>
+      <button type="button" onclick="toggleMobileDrawer()" aria-label="Open navigation menu" class="inline-flex items-center justify-center w-10 h-10 rounded bg-dark-secondary text-on-primary hover:bg-secondary transition-colors duration-state-change">
+        <span class="material-symbols-outlined text-[22px]">menu</span>
+      </button>
+    </header>
+
+    <!-- Mobile Drawer Backdrop -->
+    <div id="mobile-backdrop" onclick="toggleMobileDrawer()" class="fixed inset-0 bg-primary/60 z-40 hidden lg:hidden"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="app-sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-primary text-on-primary flex flex-col justify-between p-5 min-h-screen transform -translate-x-full lg:translate-x-0 lg:static lg:shrink-0 transition-transform duration-surface-enter">
+      <div class="flex flex-col gap-8">
+        <!-- Brand Logo -->
+        <div class="flex items-center justify-between px-2 pt-1">
+          <a href="../dashboard/Dashboard.html" class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded bg-secondary text-on-secondary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[22px]">deployed_code</span>
+            </span>
+            <span class="font-headline text-headline-md text-on-primary tracking-tight" data-design-text-token="headline-md">deploykit</span>
+          </a>
+          <button type="button" onclick="toggleMobileDrawer()" aria-label="Close navigation menu" class="lg:hidden inline-flex items-center justify-center w-8 h-8 rounded text-on-primary/80 hover:bg-dark-secondary">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+
+        <!-- Six Main Navigation Menus -->
+        <nav aria-label="Primary Navigation" class="flex flex-col gap-1.5">
+          <a href="../profile/Profile.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">account_circle</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Profile</span>
+          </a>
+          <a href="../dashboard/Dashboard.html" aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded bg-dark-secondary text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">dashboard</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Dashboard</span>
+          </a>
+          <a href="../deploy/Deployments.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">rocket_launch</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Deploy</span>
+          </a>
+          <a href="../domains/Domains.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">language</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Domains</span>
+          </a>
+          <a href="../logs/DeploymentLogs.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">description</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Logs</span>
+          </a>
+          <a href="../cicd-git/CicdGit.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">account_tree</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">CI/CD Git</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- User Profile Shortcut -->
+      <a href="../profile/Profile.html" class="flex items-center gap-3 p-3 rounded-md bg-dark-secondary/70 hover:bg-dark-secondary transition-colors duration-state-change mt-8">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrDLRl5l-lwJWDBHat0BNTRY0HKyokgfYyCqKKlzfvGfBq3y8ySWkjK5Ra61qXQW20F9MX0BDzboczJ7u35lg1BKgLe7GnPGUAbeup0813U8g5T7fn6-43wx_qUatt_X_QwSikxaqfsc3j1hW26UtCpx86TwSHZKeQb98h5uXY70VB60o_NGgDgvEwFSnFloZ8GuAiVh0gmYtLH0A7-SuSI1N6EntKXoslirxK2JzoVK2tFLkqA" alt="Alex Rivera" class="w-9 h-9 rounded-full object-cover border border-accent/40 shrink-0" data-stitch-original-src="3c75dce23fce8919===../../images/avatar_alex.jpg">
+        <div class="min-w-0 flex-1">
+          <p class="font-body text-label-lg text-on-primary truncate" data-design-text-token="label-lg">Alex Rivera</p>
+          <p class="font-body text-label-sm text-on-primary/70 truncate" data-design-text-token="label-sm">alex.rivera@deploykit.dev</p>
+        </div>
+      </a>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 flex flex-col gap-6">
+      <!-- Page Header -->
+      <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="font-headline text-display-lg-mobile lg:text-headline-lg text-primary" data-design-text-token="headline-lg">Welcome Back!</h1>
+          <p class="font-body text-body-md text-muted mt-1" data-design-text-token="body-md">Monitor and manage your deployments in one place.</p>
+        </div>
+        <div class="flex items-center gap-3 self-start sm:self-auto">
+          <button data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-card-bg border border-border-subtle text-primary hover:bg-surface-elevated focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]">notifications</span>
+            <span data-component-id="badge-dot" data-component-type="badge" data-component-variant="dot" role="status" aria-label="Unread notifications" class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-accent"></span>
+          </button>
+          <a href="../profile/Profile.html" class="flex items-center gap-2.5 pl-1.5 pr-3 py-1 rounded-full bg-card-bg border border-border-subtle hover:bg-surface-elevated transition-colors duration-state-change">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDLRl5l-lwJWDBHat0BNTRY0HKyokgfYyCqKKlzfvGfBq3y8ySWkjK5Ra61qXQW20F9MX0BDzboczJ7u35lg1BKgLe7GnPGUAbeup0813U8g5T7fn6-43wx_qUatt_X_QwSikxaqfsc3j1hW26UtCpx86TwSHZKeQb98h5uXY70VB60o_NGgDgvEwFSnFloZ8GuAiVh0gmYtLH0A7-SuSI1N6EntKXoslirxK2JzoVK2tFLkqA" alt="Alex Rivera" class="w-8 h-8 rounded-full object-cover" data-stitch-original-src="3c75dce23fce8919===../../images/avatar_alex.jpg">
+            <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Alex Rivera</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- B. Deployment Overview (4 Statistic Cards) -->
+      <section aria-label="Deployment Overview" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+        <!-- Card 1: Total Projects -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col justify-between gap-3 h-full">
+          <h2 class="font-body text-body-sm text-muted" data-design-text-token="body-sm">Total Projects</h2>
+          <div class="flex items-center justify-between gap-3">
+            <p class="font-headline text-display-lg-mobile lg:text-display-lg text-primary tabular-nums" data-design-text-token="display-lg">24</p>
+            <div class="w-10 h-10 rounded-md bg-surface-elevated border border-border-subtle flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined text-[20px]">layers</span>
+            </div>
+          </div>
+          <p class="font-body text-body-sm text-muted text-balance" data-design-text-token="body-sm">+3 connected repositories</p>
+        </article>
+
+        <!-- Card 2: Successful Deployments -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col justify-between gap-3 h-full">
+          <h2 class="font-body text-body-sm text-muted" data-design-text-token="body-sm">Successful Deployments</h2>
+          <div class="flex items-center justify-between gap-3">
+            <p class="font-headline text-display-lg-mobile lg:text-display-lg text-primary tabular-nums" data-design-text-token="display-lg">1,284</p>
+            <div class="w-10 h-10 rounded-md bg-success-container text-on-success-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[20px]">check_circle</span>
+            </div>
+          </div>
+          <p class="font-body text-body-sm text-muted tabular-nums text-balance" data-design-text-token="body-sm">95.7% build success rate</p>
+        </article>
+
+        <!-- Card 3: Failed Deployments -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col justify-between gap-3 h-full">
+          <h2 class="font-body text-body-sm text-muted" data-design-text-token="body-sm">Failed Deployments</h2>
+          <div class="flex items-center justify-between gap-3">
+            <p class="font-headline text-display-lg-mobile lg:text-display-lg text-primary tabular-nums" data-design-text-token="display-lg">19</p>
+            <div class="w-10 h-10 rounded-md bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[20px]">error</span>
+            </div>
+          </div>
+          <p class="font-body text-body-sm text-muted tabular-nums text-balance" data-design-text-token="body-sm">2 unresolved in staging</p>
+        </article>
+
+        <!-- Card 4: Active Domains -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col justify-between gap-3 h-full">
+          <h2 class="font-body text-body-sm text-muted" data-design-text-token="body-sm">Active Domains</h2>
+          <div class="flex items-center justify-between gap-3">
+            <p class="font-headline text-display-lg-mobile lg:text-display-lg text-primary tabular-nums" data-design-text-token="display-lg">16</p>
+            <div class="w-10 h-10 rounded-md bg-surface-elevated border border-border-subtle flex items-center justify-center text-accent shrink-0">
+              <span class="material-symbols-outlined text-[20px]">language</span>
+            </div>
+          </div>
+          <p class="font-body text-body-sm text-muted text-balance" data-design-text-token="body-sm">All SSL certificates valid</p>
+        </article>
+      </section>
+
+      <!-- C & E: Deployment Activity Chart + Deployment Status Overview -->
+      <section class="grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
+        <!-- C. Deployment Activity -->
+        <article class="xl:col-span-2 rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-5">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Deployment Activity</h2>
+              <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Overview of deployment activities over time.</p>
+            </div>
+            <div class="inline-flex items-center rounded bg-surface-elevated border border-border-subtle p-1 self-start sm:self-auto" role="group" aria-label="Time range filter">
+              <button type="button" onclick="setRange(this, &#39;7d&#39;)" class="range-btn px-3 py-1.5 rounded-sm bg-primary text-on-primary font-body text-label-sm transition-colors duration-state-change">7 Days</button>
+              <button type="button" onclick="setRange(this, &#39;30d&#39;)" class="range-btn px-3 py-1.5 rounded-sm text-muted hover:text-primary font-body text-label-sm transition-colors duration-state-change">30 Days</button>
+              <button type="button" onclick="setRange(this, &#39;90d&#39;)" class="range-btn px-3 py-1.5 rounded-sm text-muted hover:text-primary font-body text-label-sm transition-colors duration-state-change">90 Days</button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-6">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-secondary"></span>
+              <span class="font-body text-label-sm text-primary" data-design-text-token="label-sm">Successful</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-accent"></span>
+              <span class="font-body text-label-sm text-primary" data-design-text-token="label-sm">Failed</span>
+            </div>
+          </div>
+
+          <!-- Responsive SVG Line Chart -->
+          <div class="rounded-md bg-surface-elevated border border-border-subtle p-4 w-full">
+            <svg viewBox="0 0 680 220" class="w-full h-52 overflow-visible" role="img" aria-label="Deployment Activity Line Chart">
+              <line x1="40" y1="20" x2="660" y2="20" stroke="#CBC7B5" stroke-dasharray="4 4" stroke-width="1"></line>
+              <line x1="40" y1="65" x2="660" y2="65" stroke="#CBC7B5" stroke-dasharray="4 4" stroke-width="1"></line>
+              <line x1="40" y1="110" x2="660" y2="110" stroke="#CBC7B5" stroke-dasharray="4 4" stroke-width="1"></line>
+              <line x1="40" y1="155" x2="660" y2="155" stroke="#CBC7B5" stroke-dasharray="4 4" stroke-width="1"></line>
+              <line x1="40" y1="190" x2="660" y2="190" stroke="#CBC7B5" stroke-width="1"></line>
+
+              <text x="30" y="24" text-anchor="end" fill="#494739" font-size="11" font-family="Red Hat Mono">60</text>
+              <text x="30" y="69" text-anchor="end" fill="#494739" font-size="11" font-family="Red Hat Mono">45</text>
+              <text x="30" y="114" text-anchor="end" fill="#494739" font-size="11" font-family="Red Hat Mono">30</text>
+              <text x="30" y="159" text-anchor="end" fill="#494739" font-size="11" font-family="Red Hat Mono">15</text>
+              <text x="30" y="194" text-anchor="end" fill="#494739" font-size="11" font-family="Red Hat Mono">0</text>
+
+              <polyline id="chart-success-line" fill="none" stroke="#3E5C76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="60,115 160,82 260,96 360,52 460,64 560,34 640,46"></polyline>
+              <polyline id="chart-failed-line" fill="none" stroke="#748CAB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" points="60,178 160,172 260,180 360,165 460,176 560,182 640,175"></polyline>
+
+              <circle cx="60" cy="115" r="4" fill="#3E5C76"></circle>
+              <circle cx="160" cy="82" r="4" fill="#3E5C76"></circle>
+              <circle cx="260" cy="96" r="4" fill="#3E5C76"></circle>
+              <circle cx="360" cy="52" r="4" fill="#3E5C76"></circle>
+              <circle cx="460" cy="64" r="4" fill="#3E5C76"></circle>
+              <circle cx="560" cy="34" r="4" fill="#3E5C76"></circle>
+              <circle cx="640" cy="46" r="4" fill="#3E5C76"></circle>
+
+              <text x="60" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Mon</text>
+              <text x="160" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Tue</text>
+              <text x="260" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Wed</text>
+              <text x="360" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Thu</text>
+              <text x="460" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Fri</text>
+              <text x="560" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Sat</text>
+              <text x="640" y="210" text-anchor="middle" fill="#494739" font-size="11" font-family="Instrument Sans">Sun</text>
+            </svg>
+          </div>
+        </article>
+
+        <!-- E. Deployment Status Overview -->
+        <article class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col justify-between gap-5">
+          <div>
+            <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Status Overview</h2>
+            <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Distribution across all recent runs.</p>
+          </div>
+
+          <div class="flex items-center justify-center py-2">
+            <div class="relative w-44 h-44 flex items-center justify-center">
+              <svg viewBox="0 0 120 120" class="w-full h-full -rotate-90" role="img" aria-label="Deployment Status Donut Chart">
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#FAF8F0" stroke-width="14"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#3E5C76" stroke-width="14" stroke-dasharray="276 289" stroke-dashoffset="0" stroke-linecap="butt"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#748CAB" stroke-width="14" stroke-dasharray="9 289" stroke-dashoffset="-276"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#8C161D" stroke-width="14" stroke-dasharray="4 289" stroke-dashoffset="-285"></circle>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span class="font-headline text-headline-lg text-primary tabular-nums" data-design-text-token="headline-lg">1,341</span>
+                <span class="font-body text-label-sm text-muted" data-design-text-token="label-sm">Total Runs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2.5 pt-2 border-t border-border-subtle">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                <span class="font-body text-body-sm text-primary" data-design-text-token="body-sm">Successful</span>
+              </div>
+              <span class="font-mono text-mono-sm text-primary tabular-nums" data-design-text-token="mono-sm">1,284 (95.7%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+                <span class="font-body text-body-sm text-primary" data-design-text-token="body-sm">Pending</span>
+              </div>
+              <span class="font-mono text-mono-sm text-primary tabular-nums" data-design-text-token="mono-sm">38 (2.9%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+                <span class="font-body text-body-sm text-primary" data-design-text-token="body-sm">Failed</span>
+              </div>
+              <span class="font-mono text-mono-sm text-primary tabular-nums" data-design-text-token="mono-sm">19 (1.4%)</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- D & F: Recent Deployments + Quick Actions -->
+      <section class="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
+        <!-- D. Recent Deployments -->
+        <article class="xl:col-span-2 rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-4">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Recent Deployments</h2>
+              <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Latest builds across connected repositories.</p>
+            </div>
+            <a href="../deploy/Deployments.html" class="font-body text-label-lg text-secondary hover:text-primary transition-colors duration-state-change">View all</a>
+          </div>
+
+          <div data-component-id="table-standard" data-component-type="table" data-component-variant="standard" class="w-full overflow-x-auto rounded-md bg-surface-elevated border border-border-subtle">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-border-subtle bg-card-bg/60">
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted">Project</th>
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted">Repository</th>
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted">Branch</th>
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted">Status</th>
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted">Date</th>
+                  <th scope="col" class="py-3 px-4 font-body text-label-sm text-muted text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border-subtle">
+                <tr class="hover:bg-card-bg/40 transition-colors duration-state-change">
+                  <td class="py-3.5 px-4 font-title text-title-md text-primary">finledger-web</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted">deploykit/finledger-web</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-primary">main</td>
+                  <td class="py-3.5 px-4">
+                    <span data-component-id="badge-success" data-component-type="badge" data-component-variant="success" role="status" class="inline-flex items-center gap-1.5 rounded-full bg-success-container text-on-success-container px-2.5 py-1 font-body text-label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span data-design-text-token="label-sm">Success</span>
+                    </span>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted tabular-nums">Nov 23, 18:42</td>
+                  <td class="py-3.5 px-4 text-right">
+                    <a href="../logs/DeploymentLogs.html" class="inline-flex items-center rounded border border-border-subtle bg-card-bg px-3 py-1 font-body text-label-sm text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-state-change">Details</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-card-bg/40 transition-colors duration-state-change">
+                  <td class="py-3.5 px-4 font-title text-title-md text-primary">pulse-analytics-api</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted">deploykit/pulse-api</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-primary">feat/v2-ingest</td>
+                  <td class="py-3.5 px-4">
+                    <span data-component-id="badge-building" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center gap-1.5 rounded-full bg-info-container text-on-info-container px-2.5 py-1 font-body text-label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-info"></span>
+                      <span data-design-text-token="label-sm">Building</span>
+                    </span>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted tabular-nums">Nov 23, 18:39</td>
+                  <td class="py-3.5 px-4 text-right">
+                    <a href="../logs/DeploymentLogs.html" class="inline-flex items-center rounded border border-border-subtle bg-card-bg px-3 py-1 font-body text-label-sm text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-state-change">Details</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-card-bg/40 transition-colors duration-state-change">
+                  <td class="py-3.5 px-4 font-title text-title-md text-primary">checkout-edge-worker</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted">deploykit/checkout-edge</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-primary">staging</td>
+                  <td class="py-3.5 px-4">
+                    <span data-component-id="badge-error" data-component-type="badge" data-component-variant="error" role="status" class="inline-flex items-center gap-1.5 rounded-full bg-error-container text-on-error-container px-2.5 py-1 font-body text-label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                      <span data-design-text-token="label-sm">Failed</span>
+                    </span>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted tabular-nums">Nov 23, 17:15</td>
+                  <td class="py-3.5 px-4 text-right">
+                    <a href="../logs/DeploymentLogs.html" class="inline-flex items-center rounded border border-border-subtle bg-card-bg px-3 py-1 font-body text-label-sm text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-state-change">Details</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-card-bg/40 transition-colors duration-state-change">
+                  <td class="py-3.5 px-4 font-title text-title-md text-primary">docs-portal</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted">deploykit/docs-portal</td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-primary">release/3.4</td>
+                  <td class="py-3.5 px-4">
+                    <span data-component-id="badge-warning" data-component-type="badge" data-component-variant="warning" role="status" class="inline-flex items-center gap-1.5 rounded-full bg-warning-container text-on-warning-container px-2.5 py-1 font-body text-label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                      <span data-design-text-token="label-sm">Pending</span>
+                    </span>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-mono-sm text-muted tabular-nums">Nov 23, 16:50</td>
+                  <td class="py-3.5 px-4 text-right">
+                    <a href="../logs/DeploymentLogs.html" class="inline-flex items-center rounded border border-border-subtle bg-card-bg px-3 py-1 font-body text-label-sm text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-state-change">Details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- F. Quick Actions -->
+        <article class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-4">
+          <div>
+            <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Quick Actions</h2>
+            <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Jump straight to common workflows.</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="../deploy/Deployments.html" class="flex items-center justify-between gap-3 rounded bg-primary text-on-primary px-4 py-3 hover:bg-dark-secondary transition-colors duration-state-change">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[20px] text-accent">rocket_launch</span>
+                <span class="font-body text-label-lg" data-design-text-token="label-lg">New Deployment</span>
+              </div>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            <a href="../domains/Domains.html" class="flex items-center justify-between gap-3 rounded bg-secondary text-on-secondary px-4 py-3 hover:bg-dark-secondary transition-colors duration-state-change">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[20px]">language</span>
+                <span class="font-body text-label-lg" data-design-text-token="label-lg">Manage Domains</span>
+              </div>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            <a href="../logs/DeploymentLogs.html" class="flex items-center justify-between gap-3 rounded border border-border-subtle bg-surface-elevated text-primary px-4 py-3 hover:bg-card-bg transition-colors duration-state-change">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[20px] text-secondary">description</span>
+                <span class="font-body text-label-lg" data-design-text-token="label-lg">View Logs</span>
+              </div>
+              <span class="material-symbols-outlined text-[18px] text-muted">arrow_forward</span>
+            </a>
+            <a href="../cicd-git/CicdGit.html" class="flex items-center justify-between gap-3 rounded border border-border-subtle bg-surface-elevated text-primary px-4 py-3 hover:bg-card-bg transition-colors duration-state-change">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[20px] text-secondary">account_tree</span>
+                <span class="font-body text-label-lg" data-design-text-token="label-lg">Connect Git Repo</span>
+              </div>
+              <span class="material-symbols-outlined text-[18px] text-muted">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function toggleMobileDrawer() {
+      const sidebar = document.getElementById('app-sidebar');
+      const backdrop = document.getElementById('mobile-backdrop');
+      sidebar.classList.toggle('-translate-x-full');
+      backdrop.classList.toggle('hidden');
+    }
+
+    function setRange(btn, range) {
+      document.querySelectorAll('.range-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('text-muted');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary');
+      btn.classList.remove('text-muted');
+
+      const successLine = document.getElementById('chart-success-line');
+      const failedLine = document.getElementById('chart-failed-line');
+      if (range === '7d') {
+        successLine.setAttribute('points', '60,115 160,82 260,96 360,52 460,64 560,34 640,46');
+        failedLine.setAttribute('points', '60,178 160,172 260,180 360,165 460,176 560,182 640,175');
+      } else if (range === '30d') {
+        successLine.setAttribute('points', '60,130 160,104 260,78 360,88 460,48 560,56 640,32');
+        failedLine.setAttribute('points', '60,170 160,176 260,164 360,172 460,168 560,179 640,174');
+      } else {
+        successLine.setAttribute('points', '60,145 160,122 260,108 360,72 460,58 560,42 640,28');
+        failedLine.setAttribute('points', '60,168 160,174 260,166 360,178 460,172 560,180 640,176');
+      }
+    }
+  </script>
+
+
+</body></html>

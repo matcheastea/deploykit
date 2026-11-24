@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — deploykit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="a69bd74e139ff06b===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'background': '#F0EBD8',
+        'primary': '#0D1321',
+        'on-primary': '#F0EBD8',
+        'secondary': '#3E5C76',
+        'on-secondary': '#FFFFFF',
+        'accent': '#748CAB',
+        'on-accent': '#0D1321',
+        'dark-secondary': '#1D2D44',
+        'on-dark-secondary': '#F0EBD8',
+        'card-bg': '#E5E5CF',
+        'on-card-bg': '#0D1321',
+        'surface': '#F0EBD8',
+        'on-surface': '#0D1321',
+        'surface-elevated': '#FAF8F0',
+        'on-surface-elevated': '#0D1321',
+        'muted': '#494739',
+        'border-subtle': '#CBC7B5',
+        'success': '#2C694E',
+        'on-success': '#FFFFFF',
+        'success-container': '#B1F0CE',
+        'on-success-container': '#002114',
+        'warning': '#9B4500',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDBCA',
+        'on-warning-container': '#331200',
+        'error': '#8C161D',
+        'on-error': '#FFFFFF',
+        'error-container': '#FFDAD7',
+        'on-error-container': '#410005',
+        'info': '#2B4963',
+        'on-info': '#FFFFFF',
+        'info-container': '#D1E4FF',
+        'on-info-container': '#001D36',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Wix Madefor Display"', 'sans-serif'],
+        'headline': ['"Wix Madefor Display"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Red Hat Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'headline-sm': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '19px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Red+Hat+Mono:wght@400;500;600&amp;family=Wix+Madefor+Display:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- Mobile Header -->
+    <header class="lg:hidden flex items-center justify-between bg-primary text-on-primary px-4 py-3 sticky top-0 z-30 border-b border-dark-secondary">
+      <a href="../dashboard/Dashboard.html" class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded bg-secondary text-on-secondary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]">deployed_code</span>
+        </span>
+        <span class="font-headline text-headline-sm text-on-primary tracking-tight" data-design-text-token="headline-sm">deploykit</span>
+      </a>
+      <button type="button" onclick="toggleMobileDrawer()" aria-label="Open navigation menu" class="inline-flex items-center justify-center w-10 h-10 rounded bg-dark-secondary text-on-primary hover:bg-secondary transition-colors duration-state-change">
+        <span class="material-symbols-outlined text-[22px]">menu</span>
+      </button>
+    </header>
+
+    <!-- Mobile Drawer Backdrop -->
+    <div id="mobile-backdrop" onclick="toggleMobileDrawer()" class="fixed inset-0 bg-primary/60 z-40 hidden lg:hidden"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="app-sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-primary text-on-primary flex flex-col justify-between p-5 min-h-screen transform -translate-x-full lg:translate-x-0 lg:static lg:shrink-0 transition-transform duration-surface-enter">
+      <div class="flex flex-col gap-8">
+        <div class="flex items-center justify-between px-2 pt-1">
+          <a href="../dashboard/Dashboard.html" class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded bg-secondary text-on-secondary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[22px]">deployed_code</span>
+            </span>
+            <span class="font-headline text-headline-md text-on-primary tracking-tight" data-design-text-token="headline-md">deploykit</span>
+          </a>
+          <button type="button" onclick="toggleMobileDrawer()" aria-label="Close navigation menu" class="lg:hidden inline-flex items-center justify-center w-8 h-8 rounded text-on-primary/80 hover:bg-dark-secondary">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+
+        <nav aria-label="Primary Navigation" class="flex flex-col gap-1.5">
+          <a href="../profile/Profile.html" aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded bg-dark-secondary text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">account_circle</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Profile</span>
+          </a>
+          <a href="../dashboard/Dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">dashboard</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Dashboard</span>
+          </a>
+          <a href="../deploy/Deployments.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">rocket_launch</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Deploy</span>
+          </a>
+          <a href="../domains/Domains.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">language</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Domains</span>
+          </a>
+          <a href="../logs/DeploymentLogs.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">description</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">Logs</span>
+          </a>
+          <a href="../cicd-git/CicdGit.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-on-primary/75 hover:bg-dark-secondary/70 hover:text-on-primary transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] text-accent">account_tree</span>
+            <span class="font-body text-label-lg" data-design-text-token="label-lg">CI/CD Git</span>
+          </a>
+        </nav>
+      </div>
+
+      <a href="../profile/Profile.html" class="flex items-center gap-3 p-3 rounded-md bg-dark-secondary/70 hover:bg-dark-secondary transition-colors duration-state-change mt-8">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrDLRl5l-lwJWDBHat0BNTRY0HKyokgfYyCqKKlzfvGfBq3y8ySWkjK5Ra61qXQW20F9MX0BDzboczJ7u35lg1BKgLe7GnPGUAbeup0813U8g5T7fn6-43wx_qUatt_X_QwSikxaqfsc3j1hW26UtCpx86TwSHZKeQb98h5uXY70VB60o_NGgDgvEwFSnFloZ8GuAiVh0gmYtLH0A7-SuSI1N6EntKXoslirxK2JzoVK2tFLkqA" alt="Alex Rivera" class="w-9 h-9 rounded-full object-cover border border-accent/40 shrink-0" data-stitch-original-src="3c75dce23fce8919===../../images/avatar_alex.jpg">
+        <div class="min-w-0 flex-1">
+          <p class="font-body text-label-lg text-on-primary truncate" data-design-text-token="label-lg">Alex Rivera</p>
+          <p class="font-body text-label-sm text-on-primary/70 truncate" data-design-text-token="label-sm">alex.rivera@deploykit.dev</p>
+        </div>
+      </a>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 flex flex-col gap-6">
+      <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="font-headline text-display-lg-mobile lg:text-headline-lg text-primary" data-design-text-token="headline-lg">Profile</h1>
+          <p class="font-body text-body-md text-muted mt-1" data-design-text-token="body-md">Manage your personal account details, security, and workspace preferences.</p>
+        </div>
+        <div class="flex items-center gap-3 self-start sm:self-auto">
+          <button type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-card-bg border border-border-subtle text-primary hover:bg-surface-elevated transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]">notifications</span>
+            <span class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-accent"></span>
+          </button>
+          <a href="../profile/Profile.html" class="flex items-center gap-2.5 pl-1.5 pr-3 py-1 rounded-full bg-card-bg border border-border-subtle hover:bg-surface-elevated transition-colors duration-state-change">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDLRl5l-lwJWDBHat0BNTRY0HKyokgfYyCqKKlzfvGfBq3y8ySWkjK5Ra61qXQW20F9MX0BDzboczJ7u35lg1BKgLe7GnPGUAbeup0813U8g5T7fn6-43wx_qUatt_X_QwSikxaqfsc3j1hW26UtCpx86TwSHZKeQb98h5uXY70VB60o_NGgDgvEwFSnFloZ8GuAiVh0gmYtLH0A7-SuSI1N6EntKXoslirxK2JzoVK2tFLkqA" alt="Alex Rivera" class="w-8 h-8 rounded-full object-cover" data-stitch-original-src="3c75dce23fce8919===../../images/avatar_alex.jpg">
+            <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Alex Rivera</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
+        <!-- Account Summary Card -->
+        <article class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-5">
+          <div class="flex items-center gap-4">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDLRl5l-lwJWDBHat0BNTRY0HKyokgfYyCqKKlzfvGfBq3y8ySWkjK5Ra61qXQW20F9MX0BDzboczJ7u35lg1BKgLe7GnPGUAbeup0813U8g5T7fn6-43wx_qUatt_X_QwSikxaqfsc3j1hW26UtCpx86TwSHZKeQb98h5uXY70VB60o_NGgDgvEwFSnFloZ8GuAiVh0gmYtLH0A7-SuSI1N6EntKXoslirxK2JzoVK2tFLkqA" alt="Alex Rivera" class="w-16 h-16 rounded-full object-cover border border-border-subtle shrink-0" data-stitch-original-src="3c75dce23fce8919===../../images/avatar_alex.jpg">
+            <div class="min-w-0">
+              <h2 class="font-headline text-headline-md text-primary truncate" data-design-text-token="headline-md">Alex Rivera</h2>
+              <p class="font-body text-body-sm text-muted truncate" data-design-text-token="body-sm">alex.rivera@deploykit.dev</p>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-success-container text-on-success-container px-2.5 py-0.5 font-body text-label-sm mt-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                <span>Pro Team Plan</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="rounded-md bg-surface-elevated border border-border-subtle p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="font-body text-body-sm text-muted">Role</span>
+              <span class="font-body text-label-lg text-primary">Platform Lead</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-body-sm text-muted">Account ID</span>
+              <span class="font-mono text-mono-sm text-primary tabular-nums">dk_usr_8942a</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-body-sm text-muted">Member Since</span>
+              <span class="font-mono text-mono-sm text-primary tabular-nums">Mar 14, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Profile Editing Form -->
+        <article class="xl:col-span-2 rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-6">
+          <div>
+            <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Personal Information</h2>
+            <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Update your display name, contact email, and default deployment region.</p>
+          </div>
+
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-5" onsubmit="event.preventDefault()">
+            <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+              <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Full Name</span>
+              <input type="text" value="Alex Rivera" class="w-full rounded bg-surface-elevated border border-border-subtle px-3.5 py-2.5 font-body text-body-md text-primary focus:border-secondary focus:ring-1 focus:ring-secondary">
+            </label>
+
+            <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+              <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Email Address</span>
+              <input type="email" value="alex.rivera@deploykit.dev" class="w-full rounded bg-surface-elevated border border-border-subtle px-3.5 py-2.5 font-body text-body-md text-primary focus:border-secondary focus:ring-1 focus:ring-secondary">
+            </label>
+
+            <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+              <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Username</span>
+              <input type="text" value="arivera" class="w-full rounded bg-surface-elevated border border-border-subtle px-3.5 py-2.5 font-mono text-mono-md text-primary focus:border-secondary focus:ring-1 focus:ring-secondary">
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-body text-label-lg text-primary" data-design-text-token="label-lg">Default Region</span>
+              <select class="w-full rounded bg-surface-elevated border border-border-subtle px-3.5 py-2.5 font-body text-body-md text-primary focus:border-secondary focus:ring-1 focus:ring-secondary">
+                <option selected>us-west-2 (Oregon)</option>
+                <option>us-east-1 (Virginia)</option>
+                <option>eu-central-1 (Frankfurt)</option>
+              </select>
+            </label>
+
+            <div class="md:col-span-2 flex items-center justify-end gap-3 pt-2 border-t border-border-subtle">
+              <button type="button" class="inline-flex items-center justify-center rounded border border-border-subtle bg-surface-elevated text-primary px-4 py-2.5 font-body text-label-lg hover:bg-background transition-colors duration-state-change">Reset</button>
+              <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" class="inline-flex items-center justify-center gap-2 rounded bg-primary text-on-primary px-5 py-2.5 font-body text-label-lg hover:bg-dark-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Save Changes</span>
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <!-- Account Settings Section -->
+      <article class="rounded-lg bg-card-bg text-on-card-bg border border-border-subtle p-6 shadow-sm flex flex-col gap-5">
+        <div>
+          <h2 class="font-headline text-headline-md text-primary" data-design-text-token="headline-md">Account Settings</h2>
+          <p class="font-body text-body-sm text-muted mt-0.5" data-design-text-token="body-sm">Security controls and notification preferences.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="rounded-md bg-surface-elevated border border-border-subtle p-4 flex items-center justify-between gap-4">
+            <div>
+              <h3 class="font-title text-title-md text-primary">Two-Factor Authentication</h3>
+              <p class="font-body text-body-sm text-muted mt-0.5">Require hardware key or authenticator app on sign-in.</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-success-container text-on-success-container px-2.5 py-1 font-body text-label-sm shrink-0">Enabled</span>
+          </div>
+
+          <div class="rounded-md bg-surface-elevated border border-border-subtle p-4 flex items-center justify-between gap-4">
+            <div>
+              <h3 class="font-title text-title-md text-primary">Deployment Failure Alerts</h3>
+              <p class="font-body text-body-sm text-muted mt-0.5">Send immediate email and Slack webhooks on failed builds.</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-success-container text-on-success-container px-2.5 py-1 font-body text-label-sm shrink-0">Enabled</span>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    function toggleMobileDrawer() {
+      document.getElementById('app-sidebar').classList.toggle('-translate-x-full');
+      document.getElementById('mobile-backdrop').classList.toggle('hidden');
+    }
+  </script>
+
+
+</body></html>

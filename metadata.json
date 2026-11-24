@@ -1,0 +1,6 @@
+{
+  "name": "deploykit",
+  "description": "Monitor deployments, custom domains, build logs, and CI/CD Git pipelines in one unified workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
